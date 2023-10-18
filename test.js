@@ -1,50 +1,66 @@
-function ChargingSystemConnector(input, total, time) {
-  return input / total;
-}
-
 function totalCharging(kW, hour) {
   return kW * hour;
 }
 
 const baseInfo = {
-  A: {
-    kWh: 60,
-    hours: 12,
+  limit: {
+    totalkWh: 20,
+    oneConnector: 7,
   },
-  B: {
-    kWh: 72,
-    hours: 12,
-  },
-  C: {
-    kWh: 48,
-    hours: 8,
-  },
-  D: {
-    kWh: 60,
-    hours: 20,
+  cond: {
+    A: {
+      kWh: 60,
+      hours: 12,
+      start: 19,
+      end: 7,
+    },
+    B: {
+      kWh: 72,
+      hours: 12,
+      start: 19,
+      end: 7,
+    },
+    C: {
+      kWh: 48,
+      hours: 8,
+      start: 22,
+      end: 6,
+    },
+    D: {
+      kWh: 60,
+      hours: 20,
+      start: 14,
+      end: 10,
+    },
   },
 };
 
+// 사용하고 있는 커넥터의 수
+baseInfo.limit.connectorCount = Object.keys(baseInfo.cond).length;
+
 new Promise((resolve, reject) => {
-  if (baseInfo) {
+  if (baseInfo.cond && Object.keys(baseInfo.cond).length > 0) {
     resolve();
   } else {
-    reject("데이터가 비어있습니다.");
+    reject(error);
   }
 })
   .then(() => {
-    // 균등 테스트 결과
+    //todo 균등 테스트 결과
     const equalTest = {};
 
-    for (let key in baseInfo) {
-      equalTest[key] = totalCharging(5, baseInfo[key].hours);
+    if (baseInfo.limit.connectorCount === 4) {
+      for (let key in baseInfo.cond) {
+        equalTest[key] = totalCharging(5, baseInfo.cond[key].hours);
+      }
+    } else if (baseInfo.limit.connectorCount === 3) {
     }
 
-    // 7kWh 시 결과
+    //todo 7kWh 시 결과
     const sevenkWh = {};
 
-    for (let key in baseInfo) {
-      sevenkWh[key] = totalCharging(7, baseInfo[key].hours);
+    for (let key in baseInfo.cond) {
+      sevenkWh[key] = totalCharging(baseInfo.limit.totalkWh, baseInfo.cond[key].hours);
     }
 
     const rslt = {
@@ -56,17 +72,32 @@ new Promise((resolve, reject) => {
   })
   .then((res) => {
     const { equalTest, sevenkWh } = res;
-    console.log(res);
-
+    const case1rslt = {
+      first: 0,
+    };
     // case 1 테스트
-    const case1Test = [];
-    for (let key in baseInfo) {
-      equalTest[key] === baseInfo[key].kWh
-        ? case1Test.push("충전시간 일치")
-        : equalTest[key] - baseInfo[key].kWh > 0
-        ? case1Test.push(`잉여 전력 ${equalTest[key] - baseInfo[key].kWh} kWh`)
-        : case1Test.push(`충전 부족 ${baseInfo[key].kWh - equalTest[key]} kWh`);
+    // const case1Test = [];
+    // for (let key in baseInfo.cond) {
+    //   equalTest[key] === baseInfo.cond[key].kWh
+    //     ? case1Test.push("충전시간 일치")
+    //     : equalTest[key] - baseInfo.cond[key].kWh > 0
+    //     ? case1Test.push(`잉여 전력 ${equalTest[key] - baseInfo.cond[key].kWh} kWh`)
+    //     : case1Test.push(`충전 부족 ${baseInfo.cond[key].kWh - equalTest[key]} kWh`);
+    // }
+
+    //todo 총 잉여전력 - 총 필요전력
+    for (let key in baseInfo.cond) {
+      case1rslt.first += equalTest[key] - baseInfo.cond[key].kWh;
     }
 
-    console.log(case1Test);
+    if (case1rslt.first >= 0) {
+      const data = {};
+      const dataKeys = ["id", "isKW", "amount", "startHour", "endHour"];
+      for (let key in baseInfo.cond) {
+        dataKeys.forEach((e) => {});
+      }
+    }
+  })
+  .catch((err) => {
+    console.error("Error :", err);
   });
