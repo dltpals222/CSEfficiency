@@ -72,9 +72,7 @@ new Promise((resolve, reject) => {
   })
   .then((res) => {
     const { equalTest, sevenkWh } = res;
-    const case1rslt = {
-      first: 0,
-    };
+    const case1rslt = {};
     // case 1 테스트
     // const case1Test = [];
     // for (let key in baseInfo.cond) {
@@ -85,12 +83,13 @@ new Promise((resolve, reject) => {
     //     : case1Test.push(`충전 부족 ${baseInfo.cond[key].kWh - equalTest[key]} kWh`);
     // }
 
+    let case1Boll = 0;
     //todo 총 잉여전력 - 총 필요전력
     for (let key in baseInfo.cond) {
-      case1rslt.first += equalTest[key] - baseInfo.cond[key].kWh;
+      case1Boll += equalTest[key] - baseInfo.cond[key].kWh;
     }
 
-    if (case1rslt.first >= 0) {
+    if (case1Boll >= 0) {
       const data = {};
       const dataKeys = ["TransactionId", "isKW", "amount", "startDate", "endDate"];
       for (let key in baseInfo.cond) {
@@ -101,3 +100,5 @@ new Promise((resolve, reject) => {
   .catch((err) => {
     console.error("Error :", err);
   });
+
+module.exports = baseInfo;
