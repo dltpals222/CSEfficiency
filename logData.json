@@ -1,0 +1,138 @@
+{
+  "1번째 로그": [
+    {
+      "TransactionId": 221,
+      "LastAction": "startTransaction",
+      "cumulative": { "charging": 0, "hour": 0 },
+      "remain": { "kWh": 60 },
+      "startDate": "2023-01-02T14:00:00.000Z",
+      "endDate": "2023-01-02T10:00:00.000Z"
+    },
+    {
+      "TransactionId": 227,
+      "LastAction": "",
+      "cumulative": { "charging": 0, "hour": 0 },
+      "remain": { "kWh": 0 }
+    },
+    {
+      "TransactionId": 231,
+      "LastAction": "",
+      "cumulative": { "charging": 0, "hour": 0 },
+      "remain": { "kWh": 0 }
+    },
+    {
+      "TransactionId": 234,
+      "LastAction": "",
+      "cumulative": { "charging": 0, "hour": 0 },
+      "remain": { "kWh": 0 }
+    }
+  ],
+  "2번째 로그": [
+    {
+      "TransactionId": 221,
+      "LastAction": "startTransaction",
+      "cumulative": { "charging": 35, "hour": 5 },
+      "remain": { "kWh": 25 },
+      "startDate": "2023-01-02T14:00:00.000Z",
+      "endDate": "2023-01-02T10:00:00.000Z",
+      "lastDate": "2023-01-01T19:00:00.000Z"
+    },
+    {
+      "TransactionId": 227,
+      "LastAction": "startTransaction",
+      "cumulative": { "charging": 0, "hour": 0 },
+      "remain": { "kWh": 60 },
+      "startDate": "2023-01-01T19:00:00.000Z",
+      "endDate": "2023-01-02T07:00:00.000Z"
+    },
+    {
+      "TransactionId": 231,
+      "LastAction": "startTransaction",
+      "cumulative": { "charging": 0, "hour": 0 },
+      "remain": { "kWh": 72 },
+      "startDate": "2023-01-01T19:00:00.000Z",
+      "endDate": "2023-01-02T07:00:00.000Z"
+    },
+    {
+      "TransactionId": 234,
+      "LastAction": "",
+      "cumulative": { "charging": 0, "hour": 0 },
+      "remain": { "kWh": 0 }
+    }
+  ],
+  "3번째 로그": [
+    {
+      "TransactionId": 221,
+      "LastAction": "startTransaction",
+      "cumulative": { "charging": 53, "hour": 8 },
+      "remain": { "kWh": 7 },
+      "startDate": "2023-01-02T14:00:00.000Z",
+      "endDate": "2023-01-02T10:00:00.000Z",
+      "lastDate": "2023-01-01T22:00:00.000Z"
+    },
+    {
+      "TransactionId": 227,
+      "LastAction": "startTransaction",
+      "cumulative": { "charging": 21, "hour": 3 },
+      "remain": { "kWh": 39 },
+      "startDate": "2023-01-01T19:00:00.000Z",
+      "endDate": "2023-01-02T07:00:00.000Z",
+      "lastDate": "2023-01-01T22:00:00.000Z"
+    },
+    {
+      "TransactionId": 231,
+      "LastAction": "startTransaction",
+      "cumulative": { "charging": 21, "hour": 3 },
+      "remain": { "kWh": 51 },
+      "startDate": "2023-01-01T19:00:00.000Z",
+      "endDate": "2023-01-02T07:00:00.000Z",
+      "lastDate": "2023-01-01T22:00:00.000Z"
+    },
+    {
+      "TransactionId": 234,
+      "LastAction": "startTransaction",
+      "cumulative": { "charging": 0, "hour": 0 },
+      "remain": { "kWh": 48 },
+      "startDate": "2023-01-01T22:00:00.000Z",
+      "endDate": "2023-01-02T06:00:00.000Z"
+    }
+  ],
+  "4번째 로그": [
+    {
+      "TransactionId": 221,
+      "LastAction": "endTransaction",
+      "cumulative": { "charging": 61, "hour": 16 },
+      "remain": { "kWh": -1 },
+      "startDate": "2023-01-02T14:00:00.000Z",
+      "endDate": "2023-01-02T10:00:00.000Z",
+      "lastDate": "2023-01-02T06:00:00.000Z"
+    },
+    {
+      "TransactionId": 227,
+      "LastAction": "endTransaction",
+      "cumulative": { "charging": 61, "hour": 11 },
+      "remain": { "kWh": -1 },
+      "startDate": "2023-01-01T19:00:00.000Z",
+      "endDate": "2023-01-02T07:00:00.000Z",
+      "lastDate": "2023-01-02T06:00:00.000Z"
+    },
+    {
+      "TransactionId": 231,
+      "LastAction": "endTransaction",
+      "cumulative": { "charging": 77, "hour": 11 },
+      "remain": { "kWh": -5 },
+      "startDate": "2023-01-01T19:00:00.000Z",
+      "endDate": "2023-01-02T07:00:00.000Z",
+      "lastDate": "2023-01-02T06:00:00.000Z"
+    },
+    {
+      "TransactionId": 234,
+      "LastAction": "endTransaction",
+      "cumulative": { "charging": 56, "hour": 8 },
+      "remain": { "kWh": -8 },
+      "startDate": "2023-01-01T22:00:00.000Z",
+      "endDate": "2023-01-02T06:00:00.000Z",
+      "lastDate": "2023-01-02T06:00:00.000Z"
+    }
+  ]
+}
