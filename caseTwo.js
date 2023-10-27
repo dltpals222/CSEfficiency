@@ -90,7 +90,6 @@ const dumpData = [
 
 let logData = [];
 let count = 0;
-const timeSet = [5, 3, 8, 1, 3]; // 각각 충전 시간
 
 // startTransaction일때 초기 설정
 function initDumpData(resultData, cond) {

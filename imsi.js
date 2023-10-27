@@ -15,3 +15,7 @@ console.log(needKwh, maxKwh, needKwh - maxKwh);
 
 console.log(5 / 2);
 console.log(5 % 2);
+
+const testString = "012"
+
+console.log(testString.slice(-2))
