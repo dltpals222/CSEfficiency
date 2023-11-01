@@ -3,7 +3,11 @@
 <br>
 <br>
 <button type="button" id="trigger">맞춘 시간에 클릭이 자동으로 되는 트리거 버튼입니다. 클릭하지 마세요.</button>
-
+<br>
+<br>
+<br>
+<button type="button" id="en">활성화 버튼입니다.</button>
+<button type="button" id="dis">입니다. 비활성화 버튼</button>
 <script>
   function triggerClick() {
     // 특정 시간 (예: 정각) 설정
@@ -25,6 +29,17 @@
   const triggerBtn = document.getElementById('trigger')
   triggerBtn.addEventListener('click',() => {
     alert('맞춘 시간에 클릭이 자동으로 되는 트리거 버튼입니다.')
+  })
+
+  const dis = document.getElementById('dis');
+  dis.setAttribute('disabled',true);
+
+  const en = document.getElementById('en');
+  en.addEventListener('click',() => {
+    en.setAttribute('disabled',true);
+    setTimeout(() => {
+      en.removeAttribute('disabled');
+    }, 2000);
   })
 
   // 버튼 클릭 시 함수 실행

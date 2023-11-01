@@ -71,10 +71,7 @@ function getMillisecondsLeft(selectVerifyData){
   if (nowDate >= startDate && nowDate < endDate) {
       // 현재 시간이 시작 시간과 종료 시간 사이인 경우
       millisecondsLeft = endDate - nowDate;
-  } else {
-      // 현재 시간이 시작 시간 이전이거나 종료 시간 이후인 경우
-      millisecondsLeft = (nowDate < startDate) ? startDate - nowDate : endDate - nowDate + 24 * 60 * 60 * 1000;
-  }
+  } 
   console.log("millisecondsLeft",millisecondsLeft);
   console.log("hour",millisecondsLeft/(1000*60*60));
   return millisecondsLeft;
@@ -124,3 +121,25 @@ function getRemainPower(verifyBaseData, maxKWh = 20) {
 let requirei = getRemainPower(verifyBaseData)
 
 console.log(requirei)
+
+function requireHour(selectVerifyData){
+  let hours;
+
+  if (selectVerifyData.remain.ChargingKw > 0) {
+      // 충전이 이루어졌을 때
+      if (selectVerifyData.remain.nowHour >= selectVerifyData.evInfo.start) {
+          // 시작 시간과 같은 날짜일 때
+          hours = selectVerifyData.evInfo.end - selectVerifyData.remain.nowHour;
+      } else {
+          // 시작 시간 다음 날일 때
+          hours = 24 - selectVerifyData.evInfo.start + selectVerifyData.evInfo.end;
+      }
+  } else {
+      // 충전이 이루어지지 않았을 때
+      hours = selectVerifyData.evInfo.end - selectVerifyData.evInfo.start;
+  }
+
+  console.log(hours);
+
+}
+
